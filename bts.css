@@ -1,0 +1,37 @@
+body{
+	background-color:rgb(240,236,249);
+	position:absolute;
+	top:5%;
+	left:8%;
+	right:8%;
+}
+
+h1{
+	font-family:"Times New Roman";
+	font-size:34px;
+	font-style:bold;
+}
+
+h2{
+	font-size:26px;
+	font-family:"Didot","Times New Roman";
+}
+
+p{
+	font-size:20px;
+}
+
+li{
+	font-size:20px;
+}
+
+img{
+	height:325px;
+	border-width:5px;
+	border-color:black;
+	border-style:solid;
+}
+
+a{
+	color:#6A4596;
+}
