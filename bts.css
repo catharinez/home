@@ -4,34 +4,54 @@ body{
 	top:5%;
 	left:8%;
 	right:8%;
+	border-width:15px;
+	border-color:white;
+	border-style:dashed;
+	padding:3%;
 }
 
 h1{
-	font-family:"Times New Roman";
-	font-size:34px;
+	font-family:"Marker Felt","Times New Roman";
+	font-size:40px;
 	font-style:bold;
 }
 
 h2{
 	font-size:26px;
-	font-family:"Didot","Times New Roman";
+	font-family:"American Typewriter","Times New Roman";
 }
 
 p{
 	font-size:20px;
+	font-family:"Courier New","Times New Roman";
 }
 
 li{
 	font-size:20px;
+	font-family:"Courier New","Times New Roman";
 }
 
 img{
 	height:325px;
 	border-width:5px;
-	border-color:black;
+	border-color:white;
 	border-style:solid;
 }
 
 a{
 	color:#6A4596;
+	font-family:"Courier New","Times New Roman";
+}
+
+table, th, td{
+	background-color:white;
+	font-size:18px;
+	font-family:"Courier New","Times New Roman";
+	border-width:1px;
+	border-style:solid;
+	border-color:black;
+}
+
+table{
+	border-collapse:collapse;
 }
