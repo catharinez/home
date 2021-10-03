@@ -11,24 +11,24 @@ body{
 }
 
 h1{
-	font-family:"Marker Felt","Times New Roman";
+	font-family:"Marker Felt","Times New Roman","Serif";
 	font-size:40px;
 	font-style:bold;
 }
 
 h2{
 	font-size:26px;
-	font-family:"American Typewriter","Times New Roman";
+	font-family:"American Typewriter","Times New Roman","Serif";
 }
 
 p{
-	font-size:20px;
-	font-family:"Courier New","Times New Roman";
+	font-size:18px;
+	font-family:"Courier New","Times New Roman","Serif";
 }
 
 li{
-	font-size:20px;
-	font-family:"Courier New","Times New Roman";
+	font-size:18px;
+	font-family:"Courier New","Times New Roman","Serif";
 }
 
 img{
@@ -40,13 +40,13 @@ img{
 
 a{
 	color:#6A4596;
-	font-family:"Courier New","Times New Roman";
+	font-family:"Courier New","Times New Roman","Serif";
 }
 
 table, th, td{
 	background-color:white;
 	font-size:18px;
-	font-family:"Courier New","Times New Roman";
+	font-family:"Courier New","Times New Roman","Serif";
 	border-width:1px;
 	border-style:solid;
 	border-color:black;
