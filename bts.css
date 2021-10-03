@@ -32,10 +32,13 @@ li{
 }
 
 img{
-	height:325px;
 	border-width:5px;
 	border-color:white;
 	border-style:solid;
+}
+
+#BTS_ly_tour{
+	width:80%;
 }
 
 a{
