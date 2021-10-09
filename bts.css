@@ -35,11 +35,10 @@ img{
 	border-width:5px;
 	border-color:white;
 	border-style:solid;
-}
-
-#BTS_ly_tour{
 	width:90%;
 }
+
+/* The unit percentages was used to prevent the image from overlaping the border around the page on phone */
 
 a{
 	color:#6A4596;
