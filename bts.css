@@ -34,7 +34,7 @@ img{
 	width:90%;
 }
 
-/* The unit percentages was used to prevent the image from overlaping the border around the page on phone */
+/* The unit, percentages, was used to make sure the images fit well on devices other than desktop. */
 
 a{
 	font-family:"Verdana","Times New Roman","Serif";
