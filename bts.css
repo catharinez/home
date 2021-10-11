@@ -4,35 +4,32 @@ body{
 	top:5%;
 	left:8%;
 	right:8%;
-	border-width:15px;
-	border-color:white;
-	border-style:dashed;
-	padding:3%;
 }
 
 h1{
-	font-family:"Marker Felt","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
 	font-size:40px;
 }
 
 h2{
 	font-size:26px;
-	font-family:"American Typewriter","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
+	color:rgb(57,39,98);
 }
 
 p{
 	font-size:18px;
-	font-family:"Courier New","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
 }
 
 li{
 	font-size:18px;
-	font-family:"Courier New","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
 }
 
 img{
 	border-width:5px;
-	border-color:white;
+	border-color:rgb(154,106,190);
 	border-style:solid;
 	width:90%;
 }
@@ -40,14 +37,22 @@ img{
 /* The unit percentages was used to prevent the image from overlaping the border around the page on phone */
 
 a{
-	color:#6A4596;
-	font-family:"Courier New","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
 }
 
-table, th, td{
+table, td{
 	background-color:white;
 	font-size:18px;
-	font-family:"Courier New","Times New Roman","Serif";
+	font-family:"Verdana","Times New Roman","Serif";
+	border-width:1px;
+	border-style:solid;
+	border-color:black;
+}
+
+th{
+	background-color:rgb(181,165,193);
+	font-size:18px;
+	font-family:"Verdana","Times New Roman","Serif";
 	border-width:1px;
 	border-style:solid;
 	border-color:black;
