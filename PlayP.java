@@ -21,8 +21,9 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 	private int counter;
 	private StatsP myStats;
 	private ImageIcon startPause;
-	private boolean isFlyUp;
+	private boolean isPlaying, isFlyUp;
 	private int timesPlayed;
+	
 
 	public PlayP() { // constructor 
 
@@ -52,6 +53,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 		resetObstacles();
 
 		timesPlayed = 0;
+		isPlaying=false;
 	}
 
 	// drawing the map, user, and obstacles
@@ -112,7 +114,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 	public void addStars(int row) { // add stars for when map is reset or when new rows are loaded
 		for (int i =0; i<12; i++) {
 			if ((int)(Math.random()*2+1)%2!=0 &&!map.isLand(row,i)) { 
-				if ((int)(Math.random()*2+1)%2!=0){
+				if ((int)(Math.random()*3+1)%3!=0){
 					obstacles.add(new Star(i*50, (row-1)*50));
 				}
 				else {
@@ -130,7 +132,6 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		//everytime the timer ticks
 		if (e.getSource()==myTimer){
-			System.out.println(map.getUpDown());
 
 			//prevents user from moving into land
 			if (hitLand()) {
@@ -168,11 +169,10 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 
 
 				if(ob.getRect().intersects(user.getRect())) { // check if user collides with obstacles
-					if(ob.isIceCube() || ob.isTomato()) { 
+					if((ob.isIceCube() || ob.isTomato()) && isPlaying) { 
 
 						if(user.getLives() - 1<= 0) {//part of lose lives
 							myStats.resetScore();
-							//map.reset();
 							map=new Map();
 							resetObstacles();
 							user=new User(0,300);
@@ -192,15 +192,12 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 							user.addLife();//add a life
 							myStats.setLives(user.getLives());
 						}
-
-
-
+						
 						else {//is star
 							user.addScore(); //add score
 						}
-
-
-						if (!ob.isTomato())
+						
+						if (!ob.isTomato() && !ob.isIceCube())
 							obstacles.remove(i); //remove stars or watermelon
 
 						myStats.setScore(user.getScore()); 
@@ -209,7 +206,6 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 				}
 				if(ob.isOutOfScreen()) { //remove stars and ice out of screen
 					obstacles.remove(i);
-					System.out.println("REMOVED");
 				}
 
 			}
@@ -241,6 +237,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 
 
 	public void keyPressed( KeyEvent e ){  // allows user/map to move when a key is pressed
+		isPlaying = true; //player has started game
 		if(KeyEvent.getKeyText(e.getKeyCode()).equals("A")) {
 			user.setLeft();
 		}
