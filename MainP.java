@@ -18,8 +18,8 @@ public class MainP extends JFrame implements ActionListener{
 	// variables
 	static CardLayout cardsL; //can't be private because we will be calling using other classes
 	static Container cont;
-	private MenuPanel menuP;
-	private PlayP playP;
+	static MenuPanel menuP;
+	static PlayP playP;
 	private Timer myTimer;
 
 	public MainP(String str) {
@@ -29,6 +29,10 @@ public class MainP extends JFrame implements ActionListener{
 		cont.setLayout(cardsL);
 		menuP= new MenuPanel();
 		playP= new PlayP();
+		
+		//credit to simone
+		playP.addKeyListener(playP);
+		playP.setFocusable(true);
 
 		// add panels to card layout
 		cont.add("menu", menuP);

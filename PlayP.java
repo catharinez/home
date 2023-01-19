@@ -26,11 +26,16 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 	
 
 	public PlayP() { // constructor 
-
+		
+		this.setFocusable(true);
+		this.requestFocus();
+		this.addKeyListener(this);
+		
 		setLayout(new BorderLayout()); // border layout
 		myStats= new StatsP();
 		add(myStats, BorderLayout.SOUTH);
 		startPause = new ImageIcon("pause.png");
+		/*
 		b = new JButton(startPause);
 		b.setOpaque(false);
 		b.setContentAreaFilled(false);
@@ -40,6 +45,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 		addKeyListener(this);
 
 		myStats.add(b);
+		*/
 		user = new User(0,300);
 
 		Sprite.loadImages();
@@ -169,7 +175,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 
 
 				if(ob.getRect().intersects(user.getRect())) { // check if user collides with obstacles
-					if((ob.isIceCube() || ob.isTomato()) && isPlaying) { 
+					if(isPlaying &&(ob.isIceCube() || ob.isTomato())) { 
 
 						if(user.getLives() - 1<= 0) {//part of lose lives
 							myStats.resetScore();
@@ -193,7 +199,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 							myStats.setLives(user.getLives());
 						}
 						
-						else {//is star
+						else if (!ob.isTomato() && !ob.isIceCube()){//is star
 							user.addScore(); //add score
 						}
 						

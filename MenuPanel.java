@@ -83,8 +83,12 @@ public class MenuPanel extends JPanel implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==game) {
+			
 			MainP.cardsL.show(MainP.cont, "game");//MainP is class --> call static variable container 
+			MainP.playP.setFocusable(true);
+			MainP.playP.requestFocus();
 		}
+		
 		else if(e.getSource()==instructions) {
 			//display instructions using a JOptionPane
 			JOptionPane.showMessageDialog(null, "Instructions\n\nThe Kirby character can be moved using\nthe following keys: A, W, S, D.\nTo move up press W.\nTo move down press S.\nTo move left press A.\nTo move right press D.\n\nThe main objective in this game is to\ncollect stars while avoiding obstacles.\nYou are given 5 lives before Kirby dies.\nGetting hit by an obstacle will cause\nyou to lose a life.\nEach star collected adds 50 points to\nyour score.\nWatermelons will spawn around the map as\npower ups, they provide an extra life each.\nAnother obstacle to avoid are tomatoes.\nRunning into a tomato takes away a life.", "Instructions", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("spinningKirby.gif"));
@@ -97,7 +101,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(null, "High score: " + highScore, "High Score", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("spinningKirby.gif"));
 		}
 		else if(e.getSource()==exit) {
-			JOptionPane.showMessageDialog(null, "Goodbye!");
+			JOptionPane.showMessageDialog(null, "Goodbye!", "Exit", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("spinningKirby.gif"));
 			System.exit(0); 
 		}
 
