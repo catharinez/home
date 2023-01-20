@@ -20,7 +20,6 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 	private int num;
 	private int counter;
 	private StatsP myStats;
-	private ImageIcon startPause;
 	private boolean isPlaying, isFlyUp;
 	private int timesPlayed;
 	
@@ -34,18 +33,6 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 		setLayout(new BorderLayout()); // border layout
 		myStats= new StatsP();
 		add(myStats, BorderLayout.SOUTH);
-		startPause = new ImageIcon("pause.png");
-		/*
-		b = new JButton(startPause);
-		b.setOpaque(false);
-		b.setContentAreaFilled(false);
-		b.setBorderPainted(false);
-		b.setFocusPainted(false);
-		b.addKeyListener(this);//for setting focus
-		addKeyListener(this);
-
-		myStats.add(b);
-		*/
 		user = new User(0,300);
 
 		Sprite.loadImages();
@@ -89,7 +76,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 		for (int i =0; i<12; i++) {
 			for (int j=1; j<map.getRows()-1; j++) { //solves overlap
 				if ((int)(Math.random()*2+1)%2==0 &&!map.isLand(j,i) && !(j==7 && i==0) && j!=3) { //make stars spawn randomly but not where kirby spawns
-					if ((int)(Math.random()*2+1)%2!=0){
+					if ((int)(Math.random()*2+1)%2!=0){ 
 						obstacles.add(new Star(i*50, (j-1)*50));
 					}
 					else {
@@ -98,7 +85,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 				}
 			}
 		}
-		obstacles.add(new Tomato(0, 2*50));
+		obstacles.add(new Tomato(0, 2*50)); // spawn tomato in the same row everytime the map resets
 
 	}
 
@@ -107,7 +94,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 		for (int i =0; i<12; i++) {
 			for (int j=0; j<map.getRows(); j++) { 
 				if (map.isLand(j,i)) {
-					if (user.getUserMoveRect().intersects(map.getRect(i,j-map.getShift()))) {
+					if (user.getUserMoveRect().intersects(map.getRect(i,j-map.getShift()))) { // checks if user rect intersects land for collisions 
 						return true;
 					}
 
@@ -185,6 +172,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 							timesPlayed++;
 							myStats.setLives(user.getLives()); // updates lives on scoreboard
 							counter=0;
+							isPlaying = false;
 							break;
 						}
 						user.loseLife();						

@@ -78,7 +78,7 @@ public class Map {
 
 		return isStarlessDown;
 	}
-	public String getRow(int row) {
+	public String getRow(int row) { // convert row to string for when comparing to tomato row
 		String strRow = "";
 		for(int i = 0; i < map[0].length; i++) {
 			strRow += map[row][i] + " ";
@@ -103,10 +103,10 @@ public class Map {
 			shiftDown();
 			count=0;
 			shift+= 1; 
-			isStarlessUp=true; 
+			isStarlessUp=true;  // starless variables keep track of whether or not we need to add new stars
 
 		}
-		else if (count == -50) { 
+		else if (count == -50) {  //user moving down by 50 
 			shiftUp();
 			count=0;
 			shift-=1;
@@ -131,7 +131,7 @@ public class Map {
 		int temp[]= map[10]; //bottom row to the top, shift rest down
 
 		for (int i =map.length-2; i>=0; i--) { //row w/ index 9 -->10
-			map[i+1]= map[i];
+			map[i+1]= map[i]; 
 		}
 		map[0]=temp;
 	}
@@ -145,7 +145,7 @@ public class Map {
 	}
 
 	public boolean isTomatoRow(String strRow) { //special row for tomato spawning
-		if (strRow.equals("0 0 0 0 0 0 0 0 0 0 0 1 ")) {
+		if (strRow.equals("0 0 0 0 0 0 0 0 0 0 0 1 ")) { // checks if the string ver of the row is equal to the tomato row
 			return true;
 		}
 		return false;
