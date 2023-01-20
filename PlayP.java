@@ -106,8 +106,8 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 
 	public void addStars(int row) { // add stars for when map is reset or when new rows are loaded
 		for (int i =0; i<12; i++) {
-			if ((int)(Math.random()*2+1)%2!=0 &&!map.isLand(row,i)) { 
-				if ((int)(Math.random()*3+1)%3!=0){
+			if ((int)(Math.random()*2+1)%2!=0 &&!map.isLand(row,i)) {  //probability for adding any obstacles
+				if ((int)(Math.random()*3+1)%3!=0){ //probability for adding stars
 					obstacles.add(new Star(i*50, (row-1)*50));
 				}
 				else {
@@ -157,7 +157,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 				}
 
 				if (ob.isTomato()) { // make tomato move back and forth
-					ob.moveObst(7);
+					ob.moveObst(7);  //increases/decreases x (makes tomato move side to side)
 				}
 
 
@@ -204,7 +204,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 
 			}
 
-			if (map.getStarsUp()) { //if a new row is getting added at the top, add to the first row
+			if (map.getStarsUp()) { //if a new row is added at the top, add stars and watermelons to the first row
 
 				if (map.isTomatoRow(map.getRow(0))) {
 					addTomato(0);
@@ -212,7 +212,7 @@ public class PlayP extends JPanel implements KeyListener, ActionListener{
 				else 
 					addStars(0); 
 			}
-			if (map.getStarsDown()) { // if a new row is getting added at the bottom, add to the last row
+			if (map.getStarsDown()) { // if a new row is added at the bottom, add stars and watermelons to the last row
 				if (map.isTomatoRow(map.getRow(10))) {
 					addTomato(10);
 				}

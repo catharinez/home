@@ -21,7 +21,6 @@ public class Map {
 
 	public Map() {
 
-		//reset();
 		try {
 			Scanner scFile = new Scanner(new File("map1.txt"));
 			for (int i =0; i< 11; i++) {
@@ -41,7 +40,7 @@ public class Map {
 		upDown=0;
 		shift=1; //map is shifted one up 
 	}
-	public void reset() {
+	public void reset() { //method for resetting the map after user spawns
 		try {
 			Scanner scFile = new Scanner(new File("map1.txt"));
 			for (int i =0; i< 11; i++) {
@@ -59,7 +58,7 @@ public class Map {
 			System.out.println("Error: "+e);
 		}
 		upDown=0;
-		shift=1; //map is shifted one up 
+		shift=1; 
 	}
 
 	//getters 
@@ -101,16 +100,16 @@ public class Map {
 		count+=i;
 		if (count ==50) { //user moving up by 50
 			shiftDown();
-			count=0;
-			shift+= 1; 
-			isStarlessUp=true;  // starless variables keep track of whether or not we need to add new stars
+			count=0; //resets the count until next shift is necessary(every change in 50 pixels)
+			shift+= 1;  //map is now shifted down by a row
+			isStarlessUp=true;  // starless variables keep track of whether or not we need to add new stars to row 0
 
 		}
 		else if (count == -50) {  //user moving down by 50 
 			shiftUp();
 			count=0;
-			shift-=1;
-			isStarlessDown=true;
+			shift-=1; //map shifts up by a row
+			isStarlessDown=true; //need new stars for row 10
 
 		}
 		else {
@@ -124,7 +123,7 @@ public class Map {
 		for (int i = 0; i< map.length-1; i++) { //row w/ index 1 into 0
 			map[i]= map[i+1];
 		}
-		map[10]=temp;
+		map[10]=temp; //row 0 becomes row 10
 
 	}
 	public void shiftDown() {//map moving down = player is moving up
@@ -133,7 +132,7 @@ public class Map {
 		for (int i =map.length-2; i>=0; i--) { //row w/ index 9 -->10
 			map[i+1]= map[i]; 
 		}
-		map[0]=temp;
+		map[0]=temp;//row 10 becomes row 0
 	}
 
 
